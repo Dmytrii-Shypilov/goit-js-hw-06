@@ -1,12 +1,17 @@
 const inputField = document.querySelector("#validation-input")
 
+function defineClass (toAdd, toRemove) {
+    inputField.classList.remove(toRemove)   
+     inputField.classList.add(toAdd);
+}
+
 inputField.addEventListener("blur", () => {
-    if (inputField.value.length < 6) {
-     inputField.classList.remove("valid")  
-     return inputField.classList.add("invalid");
+    if (inputField.value.length === 6) {
+        return defineClass ("valid", "invalid")
     }
-     inputField.classList.remove("invalid")   
-     inputField.classList.add("valid");
+
+    defineClass("invalid","valid")
+     
 })
 
 
